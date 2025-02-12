@@ -12,6 +12,7 @@ body {
     justify-content: center;
     height: 100vh;
     overflow: hidden;
+    font-size: 16px;
 }
 
 /* ---- กล่องข้อความโปร่งใส Glassmorphism ---- */
@@ -174,5 +175,38 @@ p {
     }
     to {
         transform: translateY(100vh) rotate(360deg);
+    }
+}
+
+/* ---- Media Queries สำหรับมือถือ ---- */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 14px; /* ปรับขนาดตัวอักษร */
+    }
+
+    h1 {
+        font-size: 36px; /* ปรับขนาดหัวข้อ */
+    }
+
+    .container {
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .signature {
+        font-size: 18px;
+    }
+
+    .ps {
+        font-size: 22px;
     }
 }
