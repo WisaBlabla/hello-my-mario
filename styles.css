@@ -17,8 +17,9 @@ body {
 
 /* ---- กล่องข้อความโปร่งใส Glassmorphism ---- */
 .container {
-    max-width: 600px;
-    padding: 30px;
+    width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอ */
+    max-width: 500px; /* จำกัดขนาดสูงสุด */
+    padding: 20px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     box-shadow: 0 8px 16px rgba(255, 0, 102, 0.3);
@@ -30,22 +31,23 @@ body {
 
 /* ---- ข้อความหัวข้อ ---- */
 h1 {
-    font-size: 48px;
+    font-size: 36px; /* ปรับขนาดหัวข้อให้เล็กลง */
     font-family: 'Dancing Script', cursive;
     color: #fff;
     text-shadow: 3px 3px 10px rgba(255, 0, 102, 0.5);
+    margin-bottom: 20px;
 }
 
 /* ---- ข้อความทั่วไป ---- */
 p {
-    font-size: 22px;
-    line-height: 1.8;
+    font-size: 16px; /* ขนาดฟอนต์ข้อความ */
+    line-height: 1.6;
     color: #fff;
 }
 
 /* ---- P.S. ---- */
 .ps {
-    font-size: 26px;
+    font-size: 18px;
     font-weight: bold;
     font-family: 'Caveat', cursive;
     color: #FF3366;
@@ -54,7 +56,7 @@ p {
 
 /* ---- ลายเซ็น Wanwisa ---- */
 .signature {
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     margin-top: 30px;
     font-style: italic;
@@ -74,8 +76,8 @@ p {
 
 /* ---- รูปของ Wanwisa ---- */
 .profile-pic {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid white;
@@ -90,7 +92,7 @@ p {
         transform: translateY(0);
     }
     to {
-        transform: translateY(-15px);
+        transform: translateY(-10px);
     }
 }
 
@@ -108,21 +110,21 @@ p {
 .floating-hearts::before,
 .floating-hearts::after {
     content: "❤️";
-    font-size: 40px;
+    font-size: 30px;
     position: absolute;
     animation: floatHearts 3s infinite alternate ease-in-out;
     opacity: 0.6;
 }
 
 .floating-hearts::before {
-    top: 15%;
-    left: 10%;
+    top: 10%;
+    left: 5%;
     animation-duration: 4s;
 }
 
 .floating-hearts::after {
-    bottom: 10%;
-    right: 15%;
+    bottom: 5%;
+    right: 5%;
     animation-duration: 5s;
 }
 
@@ -132,7 +134,7 @@ p {
         transform: translateY(0);
     }
     to {
-        transform: translateY(-20px);
+        transform: translateY(-15px);
     }
 }
 
@@ -150,7 +152,7 @@ p {
 .falling-flowers::before,
 .falling-flowers::after {
     content: "🌸";
-    font-size: 30px;
+    font-size: 25px;
     position: absolute;
     opacity: 0.5;
     animation: fallFlowers 6s infinite linear;
@@ -159,13 +161,13 @@ p {
 .falling-flowers::before {
     top: -10%;
     left: 20%;
-    animation-duration: 8s;
+    animation-duration: 7s;
 }
 
 .falling-flowers::after {
     top: -10%;
     right: 30%;
-    animation-duration: 7s;
+    animation-duration: 8s;
 }
 
 /* ---- เอฟเฟกต์ดอกไม้ร่วง ---- */
@@ -178,35 +180,35 @@ p {
     }
 }
 
-/* ---- Media Queries สำหรับมือถือ ---- */
-@media only screen and (max-width: 600px) {
+/* ---- สำหรับมือถือขนาดเล็ก ---- */
+@media only screen and (max-width: 375px) {
     body {
-        font-size: 14px; /* ปรับขนาดตัวอักษร */
+        font-size: 14px; /* ปรับขนาดฟอนต์ */
     }
 
     h1 {
-        font-size: 36px; /* ปรับขนาดหัวข้อ */
+        font-size: 28px; /* ปรับขนาดหัวข้อ */
     }
 
     .container {
-        padding: 20px;
-        margin-top: 15px;
+        padding: 15px;
+        margin-top: 10px;
     }
 
     .profile-pic {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     p {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     .signature {
-        font-size: 18px;
+        font-size: 12px;
     }
 
     .ps {
-        font-size: 22px;
+        font-size: 16px;
     }
 }
