@@ -12,42 +12,43 @@ body {
     justify-content: center;
     height: 100vh;
     overflow: hidden;
-    font-size: 16px;
+    font-size: 14px; /* ลดขนาดฟอนต์ทั้งหมด */
 }
 
 /* ---- กล่องข้อความโปร่งใส Glassmorphism ---- */
 .container {
     width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอ */
-    max-width: 500px; /* จำกัดขนาดสูงสุด */
-    padding: 20px;
+    max-width: 480px; /* จำกัดขนาดสูงสุด */
+    padding: 15px; /* ลด padding */
     background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+    border-radius: 18px; /* ปรับมุมให้กลมขึ้น */
     box-shadow: 0 8px 16px rgba(255, 0, 102, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(10px);
     animation: fadeIn 1.5s ease-in-out;
-    margin-top: 20px;
+    margin-top: 10px; /* ลด margin */
 }
 
 /* ---- ข้อความหัวข้อ ---- */
 h1 {
-    font-size: 36px; /* ปรับขนาดหัวข้อให้เล็กลง */
+    font-size: 32px; /* ลดขนาดหัวข้อ */
     font-family: 'Dancing Script', cursive;
     color: #fff;
     text-shadow: 3px 3px 10px rgba(255, 0, 102, 0.5);
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* ลดระยะห่างจากข้อความอื่น */
 }
 
 /* ---- ข้อความทั่วไป ---- */
 p {
-    font-size: 16px; /* ขนาดฟอนต์ข้อความ */
-    line-height: 1.6;
+    font-size: 14px; /* ขนาดฟอนต์ข้อความ */
+    line-height: 1.5;
     color: #fff;
+    margin: 5px 0; /* ลดช่องว่างระหว่างข้อความ */
 }
 
 /* ---- P.S. ---- */
 .ps {
-    font-size: 18px;
+    font-size: 16px; /* ลดขนาดข้อความ P.S. */
     font-weight: bold;
     font-family: 'Caveat', cursive;
     color: #FF3366;
@@ -56,9 +57,9 @@ p {
 
 /* ---- ลายเซ็น Wanwisa ---- */
 .signature {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
-    margin-top: 30px;
+    margin-top: 20px;
     font-style: italic;
 }
 
@@ -76,14 +77,14 @@ p {
 
 /* ---- รูปของ Wanwisa ---- */
 .profile-pic {
-    width: 120px;
-    height: 120px;
+    width: 100px; /* ลดขนาดรูป */
+    height: 100px;
     border-radius: 50%;
     object-fit: cover;
     border: 5px solid white;
     box-shadow: 0 5px 15px rgba(255, 0, 102, 0.3);
     animation: floatImage 4s infinite alternate ease-in-out;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* ---- เอฟเฟกต์ให้รูปเคลื่อนไหว ---- */
@@ -92,7 +93,7 @@ p {
         transform: translateY(0);
     }
     to {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 }
 
@@ -110,7 +111,7 @@ p {
 .floating-hearts::before,
 .floating-hearts::after {
     content: "❤️";
-    font-size: 30px;
+    font-size: 28px; /* ลดขนาดหัวใจ */
     position: absolute;
     animation: floatHearts 3s infinite alternate ease-in-out;
     opacity: 0.6;
@@ -152,7 +153,7 @@ p {
 .falling-flowers::before,
 .falling-flowers::after {
     content: "🌸";
-    font-size: 25px;
+    font-size: 20px; /* ลดขนาดดอกไม้ */
     position: absolute;
     opacity: 0.5;
     animation: fallFlowers 6s infinite linear;
@@ -160,13 +161,13 @@ p {
 
 .falling-flowers::before {
     top: -10%;
-    left: 20%;
+    left: 15%;
     animation-duration: 7s;
 }
 
 .falling-flowers::after {
     top: -10%;
-    right: 30%;
+    right: 25%;
     animation-duration: 8s;
 }
 
@@ -180,35 +181,34 @@ p {
     }
 }
 
-/* ---- สำหรับมือถือขนาดเล็ก ---- */
+/* ---- สำหรับมือถือขนาดเล็ก (iPhone X) ---- */
 @media only screen and (max-width: 375px) {
     body {
-        font-size: 14px; /* ปรับขนาดฟอนต์ */
+        font-size: 12px; /* ปรับขนาดฟอนต์ */
     }
 
     h1 {
-        font-size: 28px; /* ปรับขนาดหัวข้อ */
+        font-size: 24px; /* ปรับขนาดหัวข้อ */
     }
 
     .container {
-        padding: 15px;
-        margin-top: 10px;
+        padding: 10px; /* ลด padding */
     }
 
     .profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 90px; /* ลดขนาดรูป */
+        height: 90px;
     }
 
     p {
-        font-size: 14px;
+        font-size: 12px; /* ขนาดฟอนต์ข้อความ */
     }
 
     .signature {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .ps {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
