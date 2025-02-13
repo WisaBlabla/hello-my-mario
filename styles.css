@@ -1,216 +1,107 @@
-/* ---- พื้นหลังธีมวาเลนไทน์ ---- */
-body {
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    font-family: 'Lora', serif;
-    color: #5A3E2B;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    font-size: 14px; /* ขนาดฟอนต์ทั้งหมด */
-}
-
-/* ---- กล่องข้อความโปร่งใส Glassmorphism ---- */
-.container {
-    width: 90%; /* ใช้ความกว้าง 90% ของหน้าจอ */
-    max-width: 480px; /* จำกัดขนาดสูงสุด */
-    padding: 12px; /* ลด padding */
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 18px; /* ปรับมุมให้กลมขึ้น */
-    box-shadow: 0 8px 16px rgba(255, 0, 102, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px);
-    animation: fadeIn 1.5s ease-in-out;
-    margin-top: 10px; /* ลด margin */
-}
-
-/* ---- ข้อความหัวข้อ ---- */
-h1 {
-    font-size: 28px; /* ลดขนาดหัวข้อ */
-    font-family: 'Dancing Script', cursive;
-    color: #fff;
-    text-shadow: 3px 3px 10px rgba(255, 0, 102, 0.5);
-    margin-bottom: 12px; /* ลดระยะห่างจากข้อความอื่น */
-}
-
-/* ---- ข้อความทั่วไป ---- */
-p {
-    font-size: 12px; /* ขนาดฟอนต์ข้อความ */
-    line-height: 1.4;
-    color: #fff;
-    margin: 5px 0; /* ลดช่องว่างระหว่างข้อความ */
-}
-
-/* ---- P.S. ---- */
-.ps {
-    font-size: 14px; /* ขนาดข้อความ P.S. */
-    font-weight: bold;
-    font-family: 'Caveat', cursive;
-    color: #FF3366;
-    text-shadow: 2px 2px 10px rgba(255, 51, 102, 0.5);
-}
-
-/* ---- ลายเซ็น Wanwisa ---- */
-.signature {
-    font-size: 10px; /* ลดขนาดลายเซ็น */
-    font-weight: bold;
-    margin-top: 12px;
-    font-style: italic;
-}
-
-/* ---- เอฟเฟกต์ Fade-in ---- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* ---- รูปของ Wanwisa ---- */
-.profile-pic {
-    width: 90px; /* ลดขนาดรูป */
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid white;
-    box-shadow: 0 5px 15px rgba(255, 0, 102, 0.3);
-    animation: floatImage 4s infinite alternate ease-in-out;
-    margin-bottom: 12px;
-}
-
-/* ---- เอฟเฟกต์ให้รูปเคลื่อนไหว ---- */
+/* ---- ปรับการขยับของรูปให้เห็นชัดขึ้น ---- */
 @keyframes floatImage {
-    from {
+    0% {
         transform: translateY(0);
     }
-    to {
-        transform: translateY(-8px);
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0);
     }
 }
 
-/* ---- หัวใจลอย ---- */
+/* ---- ปรับหัวใจลอยให้ชัดขึ้น ---- */
 .floating-hearts {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -1;
+    z-index: 0;
+    overflow: hidden;
 }
 
-.floating-hearts::before,
-.floating-hearts::after {
-    content: "❤️";
-    font-size: 24px; /* ลดขนาดหัวใจ */
+.floating-hearts span {
     position: absolute;
-    animation: floatHearts 3s infinite alternate ease-in-out;
+    bottom: 0;
+    font-size: 20px;
+    opacity: 0.7;
+    color: #ff4d6d;
+    animation: floatHeartAnimation 6s linear infinite;
+}
+
+@keyframes floatHeartAnimation {
+    0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* ---- ปรับดอกไม้ร่วงให้สมจริงขึ้น ---- */
+.falling-flowers {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.falling-flowers span {
+    position: absolute;
+    top: -10%;
+    font-size: 22px;
     opacity: 0.6;
+    animation: fallFlowerAnimation 6s linear infinite;
 }
 
-.floating-hearts::before {
-    top: 12%;
-    left: 5%;
-    animation-duration: 4s;
+@keyframes fallFlowerAnimation {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
 }
 
-.floating-hearts::after {
-    bottom: 5%;
-    right: 5%;
+/* ---- ปรับให้หัวใจและดอกไม้มีหลายดวง ---- */
+.floating-hearts span:nth-child(1) {
+    left: 10%;
     animation-duration: 5s;
 }
 
-/* ---- เอฟเฟกต์หัวใจลอย ---- */
-@keyframes floatHearts {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-15px);
-    }
+.floating-hearts span:nth-child(2) {
+    left: 50%;
+    animation-duration: 6s;
+    font-size: 24px;
 }
 
-/* ---- ดอกไม้ร่วง ---- */
-.falling-flowers {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-}
-
-.falling-flowers::before,
-.falling-flowers::after {
-    content: "🌸";
-    font-size: 18px; /* ลดขนาดดอกไม้ */
-    position: absolute;
-    opacity: 0.5;
-    animation: fallFlowers 6s infinite linear;
-}
-
-.falling-flowers::before {
-    top: -10%;
-    left: 15%;
+.floating-hearts span:nth-child(3) {
+    left: 80%;
     animation-duration: 7s;
 }
 
-.falling-flowers::after {
-    top: -10%;
-    right: 25%;
-    animation-duration: 8s;
+.falling-flowers span:nth-child(1) {
+    left: 15%;
+    animation-duration: 6s;
 }
 
-/* ---- เอฟเฟกต์ดอกไม้ร่วง ---- */
-@keyframes fallFlowers {
-    from {
-        transform: translateY(0) rotate(0);
-    }
-    to {
-        transform: translateY(100vh) rotate(360deg);
-    }
+.falling-flowers span:nth-child(2) {
+    left: 60%;
+    animation-duration: 7s;
+    font-size: 26px;
 }
 
-/* ---- สำหรับมือถือขนาดเล็ก (iPhone X) ---- */
-@media only screen and (max-width: 375px) {
-    body {
-        font-size: 12px; /* ปรับขนาดฟอนต์ */
-    }
-
-    h1 {
-        font-size: 22px; /* ปรับขนาดหัวข้อ */
-    }
-
-    .container {
-        width: 90%;
-        padding: 8px;
-        margin-top: 5px; /* ลดระยะห่าง */
-    }
-
-    .profile-pic {
-        width: 80px; /* ลดขนาดรูป */
-        height: 80px;
-    }
-
-    p {
-        font-size: 10px; /* ขนาดฟอนต์ข้อความ */
-    }
-
-    .signature {
-        font-size: 8px;
-    }
-
-    .ps {
-        font-size: 12px;
-    }
+.falling-flowers span:nth-child(3) {
+    left: 85%;
+    animation-duration: 5s;
 }
